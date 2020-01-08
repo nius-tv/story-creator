@@ -1,0 +1,16 @@
+stages:
+  - deploy
+
+deploy app:
+  stage: deploy
+  image: $CI_RUNNER_IMG
+  script:
+    # Init Google Cloud SDK
+    - echo "$GCP_SERVICE_ACCOUNT" >> "$HOME/gcp-service-account.json"
+    - gcloud auth activate-service-account --key-file $HOME/gcp-service-account.json
+    # Set Google project workspace
+    - gcloud config set project $GCP_COMPUTE_PROJECT_NAME
+    # Deploy to Google App Engine
+    - gcloud app deploy app.yaml --quiet
+  only:
+    - master
