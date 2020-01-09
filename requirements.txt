@@ -1,6 +1,7 @@
 apache-beam==2.17.0
 Flask==1.1.1
 google-apitools==0.5.30
+google-cloud-pubsub==1.0.2
 google-cloud-storage==1.24.1
 gunicorn==19.9.0
 pyyaml==5.1.2

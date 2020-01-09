@@ -3,12 +3,16 @@ import yaml
 from apache_beam.io.gcp import gcsio
 from config import *
 from flask import Flask, request
-from google.cloud import storage
+from google.cloud import pubsub_v1, storage
 
 
 app = Flask(__name__)
+
 client = storage.Client()
 dest_bucket = client.get_bucket(BUCKET_NAME)
+
+publisher = pubsub_v1.PublisherClient()
+topic_path = publisher.topic_path(COMPUTE_PROJECT_NAME, TOPIC_NAME)
 
 
 @app.route('/stories/<story_id>', methods=['POST'])
@@ -49,6 +53,9 @@ def add_story(story_id):
 	dest_filepath = '{}/story.yaml'.format(story_id)
 	blob = dest_bucket.blob(dest_filepath)
 	blob.upload_from_filename(story_filepath)
+	# Create pubsub message
+	data = story_id.encode('utf-8') # data must be a bytestring
+	publisher.publish(topic_path, data=data)
 
 	return 'ok'
 
