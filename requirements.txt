@@ -3,3 +3,4 @@ Flask==1.1.1
 google-apitools==0.5.30
 google-cloud-storage==1.24.1
 gunicorn==19.9.0
+pyyaml==5.1.2
