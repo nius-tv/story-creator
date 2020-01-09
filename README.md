@@ -4,5 +4,8 @@ gcloud app create \
 
 gcloud app deploy app.yaml \
 	--project plasmic-compute-256214 \
-	--quiet \
+	--quiet
+
+gcloud app logs tail \
+	--project plasmic-compute-256214 \
 	--service story-creator
