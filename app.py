@@ -20,12 +20,12 @@ def add_story(story_id):
 	data = request.get_json()
 	# Validates data
 	if not all(elem in data for elem in REQUIRED_FIELDS) \
-		or len(data['GCSURLs']) < MIN_NUM_IMAGES:
+		or len(data['GCSImageURLs']) < MIN_NUM_IMAGES:
 		print('raise:', data)
 		raise
 	# Copy images to plasmic bucket
 	img_filenames = []
-	for gcs_url in data['GCSURLs']:
+	for gcs_url in data['GCSImageURLs']:
 		source_bucket_name, source_filepath = gcsio.parse_gcs_path(gcs_url)
 		source_bucket = client.get_bucket(source_bucket_name)
 		source_blob = source_bucket.get_blob(source_filepath)
