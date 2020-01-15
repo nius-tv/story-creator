@@ -44,7 +44,8 @@ def add_story(story_id):
 		'text': clean_text(data['text']),
 		'title': [
 			clean_text(data['title1']),
-			clean_text(data['title2'])
+			clean_text(data['title2']),
+			clean_text(data['title3'])
 		]
 	}
 	with open(story_filepath, 'w') as f:
