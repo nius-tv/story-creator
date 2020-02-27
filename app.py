@@ -40,6 +40,7 @@ def add_story(story_id):
 		'category': data['category'].strip(),
 		'images': img_filenames,
 		'pixToPixModel': PIX_TO_PIX_MODEL,
+		'showAnchor': data['showAnchor'],
 		'subtitle': clean_text(data['subtitle']),
 		'text': clean_text(data['text']),
 		'title': [
