@@ -39,7 +39,7 @@ def add_story(story_id):
 	data = {
 		'category': data['category'].strip(),
 		'images': img_filenames,
-		'pixToPixModel': data['model'],
+		'model': data['model'],
 		'showAnchor': data['showAnchor'],
 		'subtitle': clean_text(data['subtitle']),
 		'text': clean_text(data['text']),
