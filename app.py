@@ -4,6 +4,7 @@ from apache_beam.io.gcp import gcsio
 from config import *
 from flask import Flask, request
 from google.cloud import pubsub_v1, storage
+from random import choice
 
 
 app = Flask(__name__)
@@ -36,10 +37,19 @@ def add_story(story_id):
 		source_bucket.copy_blob(source_blob, dest_bucket, dest_filepath)
 	# Create story yaml file
 	story_filepath = '/tmp/{}.yaml'.format(story_id)
+	model = data['model']
 	data = {
 		'category': data['category'].strip(),
 		'images': img_filenames,
-		'model': data['model'],
+		'library': {
+			'bgVideoFilePath': choice(BACKGROUND_VIDEO_FILE_PATHS[model]),
+			'maskVideoFilePath': choice(MASK_VIDEO_FILE_PATHS[model]),
+			'musicFilePath': choice(MUSIC_FILE_PATHS[model]),
+			'presenterBgVideoFilePath': choice(PRESENTER_BACKGROUND_VIDEO_FILE_PATHS[model]),
+			'transitionFilePath': choice(TRANSITION_FILE_PATHS[model]),
+			'transitionVideoFilePath': choice(TRANSITION_VIDEO_FILE_PATHS[model]),
+		},
+		'model': model,
 		'showAnchor': data['showAnchor'],
 		'subtitle': clean_text(data['subtitle']),
 		'text': clean_text(data['text']),
@@ -47,7 +57,7 @@ def add_story(story_id):
 			clean_text(data['title1']),
 			clean_text(data['title2']),
 			clean_text(data['title3'])
-		]
+		],
 	}
 	with open(story_filepath, 'w') as f:
 		yaml.dump(data, f, default_flow_style=False)
