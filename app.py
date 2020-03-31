@@ -39,6 +39,7 @@ def add_story(story_id):
 	story_filepath = '/tmp/{}.yaml'.format(story_id)
 	model = data['model']
 	data = {
+		'adjustAnchor': ADJUST_ANCHOR[model],
 		'category': data['category'].strip(),
 		'images': img_filenames,
 		'library': {

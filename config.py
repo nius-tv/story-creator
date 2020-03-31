@@ -1,5 +1,21 @@
 import os
 
+ADJUST_ANCHOR = {
+	'nanaimo-bar': {
+		'rotate': 0,
+		'scaleWidth': 0,
+		'scaleHeight': 0,
+		'x': 0,
+		'y': 0,
+	},
+	'sophie39': {
+		'rotate': 12,
+		'scaleWidth': 142,
+		'scaleHeight': 283,
+		'x': 220,
+		'y': 410,
+	},
+}
 AUDIO_FMT = os.environ['AUDIO_FMT']
 AUDIO_SAMPLE_RATE = 44100
 BUCKET_NAME = 'plasmic-stories'
