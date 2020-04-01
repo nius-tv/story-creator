@@ -18,6 +18,10 @@ ADJUST_ANCHOR = {
 }
 AUDIO_FMT = os.environ['AUDIO_FMT']
 AUDIO_SAMPLE_RATE = 44100
+BACKGROUND_PADDINGS = {
+	'nanaimo-bar': 12,
+	'sophie39': 0,
+}
 BUCKET_NAME = 'plasmic-stories'
 COMPUTE_PROJECT_NAME = 'plasmic-compute-256214'
 LIBRARY_DIR_PATH = '/library'

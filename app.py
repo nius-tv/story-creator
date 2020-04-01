@@ -40,6 +40,7 @@ def add_story(story_id):
 	model = data['model']
 	data = {
 		'adjustAnchor': ADJUST_ANCHOR[model],
+		'bgPadding': BACKGROUND_PADDINGS[model],
 		'category': data['category'].strip(),
 		'images': img_filenames,
 		'library': {
