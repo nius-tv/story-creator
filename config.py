@@ -67,17 +67,17 @@ PRESENTER_BACKGROUND_VIDEO_FILE_PATHS = {
 }
 TRANSITION_FILE_PATHS = {
 	'nanaimo-bar': [
-		'{}/transitions/120/mid.yaml'.format(LIBRARY_DIR_PATH),
+		'{}/transitions/2/mid.yaml'.format(LIBRARY_DIR_PATH),
 	],
 	'sophie39': [
-		'{}/transitions/2/mid.yaml'.format(LIBRARY_DIR_PATH),
+		'{}/transitions/3/mid.yaml'.format(LIBRARY_DIR_PATH),
 	],
 }
 TRANSITION_VIDEO_FILE_PATHS = {
 	'nanaimo-bar': [
-		'{}/transitions/120/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
+		'{}/transitions/2/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 	'sophie39': [
-		'{}/transitions/120/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
+		'{}/transitions/3/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 }
