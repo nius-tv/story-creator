@@ -35,7 +35,7 @@ BACKGROUND_VIDEO_FILE_PATHS = {
 		'{}/backgrounds/15/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 	'sophie39': [
-		'{}/backgrounds/15/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
+		'{}/backgrounds/earth/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 }
 MASK_VIDEO_FILE_PATHS = {
