@@ -16,6 +16,18 @@ ADJUST_ANCHOR = {
 		'y': 410,
 	},
 }
+ANCHOR_ANIMATION = {
+	'nanaimo-bar': {
+		'direction': None,
+		'offset': None,
+		'speed': None,
+	},
+	'sophie39': {
+		'direction': 'top-bottom',
+		'offset': 100,
+		'speed': 0.5,
+	},
+}
 AUDIO_FMT = os.environ['AUDIO_FMT']
 AUDIO_SAMPLE_RATE = 44100
 BACKGROUND_PADDINGS = {
