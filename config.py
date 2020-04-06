@@ -75,6 +75,7 @@ PRESENTER_BACKGROUND_VIDEO_FILE_PATHS = {
 	],
 	'sophie39': [
 		'{}/presenter-bgs/sun/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
+		'{}/presenter-bgs/sun-2/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 }
 TRANSITION_FILE_PATHS = {
