@@ -3,10 +3,10 @@ import os
 ADJUST_ANCHOR = {
 	'rani-weekend': {
 		'rotate': 0,
-		'scaleWidth': 0,
-		'scaleHeight': 0,
-		'x': 0,
-		'y': 0,
+		'scaleWidth': 238,
+		'scaleHeight': 471,
+		'x': 254,
+		'y': 510,
 	},
 	'sophie39': {
 		'rotate': 12,
