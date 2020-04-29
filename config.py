@@ -1,7 +1,7 @@
 import os
 
 ADJUST_ANCHOR = {
-	'nanaimo-bar': {
+	'rani-weekend': {
 		'rotate': 0,
 		'scaleWidth': 0,
 		'scaleHeight': 0,
@@ -17,7 +17,7 @@ ADJUST_ANCHOR = {
 	},
 }
 ANCHOR_ANIMATION = {
-	'nanaimo-bar': {
+	'rani-weekend': {
 		'direction': None,
 		'offset': None,
 		'speed': None,
@@ -31,7 +31,7 @@ ANCHOR_ANIMATION = {
 AUDIO_FMT = os.environ['AUDIO_FMT']
 AUDIO_SAMPLE_RATE = 44100
 BACKGROUND_PADDINGS = {
-	'nanaimo-bar': 12,
+	'rani-weekend': 12,
 	'sophie39': 0,
 }
 BUCKET_NAME = 'plasmic-stories'
@@ -43,7 +43,7 @@ TOPIC_NAME = 'init-generate'
 VIDEO_FMT = os.environ['VIDEO_FMT']
 # Library assets
 BACKGROUND_VIDEO_FILE_PATHS = {
-	'nanaimo-bar': [
+	'rani-weekend': [
 		'{}/backgrounds/15/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 	'sophie39': [
@@ -51,7 +51,7 @@ BACKGROUND_VIDEO_FILE_PATHS = {
 	],
 }
 MASK_VIDEO_FILE_PATHS = {
-	'nanaimo-bar': [
+	'rani-weekend': [
 		'{}/masks/nanaimo-bar/mask-30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 	'sophie39': [
@@ -59,7 +59,7 @@ MASK_VIDEO_FILE_PATHS = {
 	],
 }
 MUSIC_FILE_PATHS = {
-	'nanaimo-bar': [
+	'rani-weekend': [
 		'{}/music/sr{}/1.{}'.format(LIBRARY_DIR_PATH, AUDIO_SAMPLE_RATE, AUDIO_FMT),
 		'{}/music/sr{}/2.{}'.format(LIBRARY_DIR_PATH, AUDIO_SAMPLE_RATE, AUDIO_FMT),
 	],
@@ -69,7 +69,7 @@ MUSIC_FILE_PATHS = {
 	],
 }
 PRESENTER_BACKGROUND_VIDEO_FILE_PATHS = {
-	'nanaimo-bar': [
+	'rani-weekend': [
 		'{}/presenter-bgs/855brannan/25fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 		'{}/presenter-bgs/oakland/25fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
@@ -81,7 +81,7 @@ PRESENTER_BACKGROUND_VIDEO_FILE_PATHS = {
 	],
 }
 TRANSITION_FILE_PATHS = {
-	'nanaimo-bar': [
+	'rani-weekend': [
 		'{}/transitions/2/mid.yaml'.format(LIBRARY_DIR_PATH),
 	],
 	'sophie39': [
@@ -89,7 +89,7 @@ TRANSITION_FILE_PATHS = {
 	],
 }
 TRANSITION_VIDEO_FILE_PATHS = {
-	'nanaimo-bar': [
+	'rani-weekend': [
 		'{}/transitions/2/30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 	'sophie39': [
