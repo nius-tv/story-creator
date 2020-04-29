@@ -43,6 +43,7 @@ def add_story(story_id):
 		'anchorAnimation': ANCHOR_ANIMATION[model],
 		'bgPadding': BACKGROUND_PADDINGS[model],
 		'category': data['category'].strip(),
+		'chromaColor': CHROMA_COLOR[model], 
 		'images': img_filenames,
 		'library': {
 			'bgVideoFilePath': choice(BACKGROUND_VIDEO_FILE_PATHS[model]),

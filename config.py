@@ -35,6 +35,10 @@ BACKGROUND_PADDINGS = {
 	'sophie39': 0,
 }
 BUCKET_NAME = 'plasmic-stories'
+CHROMA_COLOR = {
+	'rani-weekend': '0x2c6937',
+	'sophie39': '0x477144',
+}
 COMPUTE_PROJECT_NAME = 'plasmic-compute-256214'
 LIBRARY_DIR_PATH = '/library'
 MIN_NUM_IMAGES = 2
