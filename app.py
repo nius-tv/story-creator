@@ -45,6 +45,7 @@ def add_story(story_id):
 		'category': data['category'].strip(),
 		'chroma': CHROMA[model], 
 		'images': img_filenames,
+		'landmarks': LANDMARKS[model],
 		'library': {
 			'bgVideoFilePath': choice(BACKGROUND_VIDEO_FILE_PATHS[model]),
 			'maskVideoFilePath': choice(MASK_VIDEO_FILE_PATHS[model]),

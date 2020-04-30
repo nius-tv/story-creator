@@ -48,6 +48,16 @@ CHROMA = {
 	},
 }
 COMPUTE_PROJECT_NAME = 'plasmic-compute-256214'
+LANDMARKS = {
+	'rani-weekend': {
+		'minPercentage': 0.5,
+		'percentageClip': 1.2,
+	},
+	'sophie39': {
+		'minPercentage': 0.5,
+		'percentageClip': 2,
+	},
+}
 LIBRARY_DIR_PATH = '/library'
 MIN_NUM_IMAGES = 2
 REQUIRED_FIELDS = ['GCSImageURLs', 'subtitle', 'text', 'title1', 'title2']
