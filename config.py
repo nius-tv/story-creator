@@ -56,7 +56,7 @@ BACKGROUND_VIDEO_FILE_PATHS = {
 }
 MASK_VIDEO_FILE_PATHS = {
 	'rani-weekend': [
-		'{}/masks/nanaimo-bar/mask-30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
+		'{}/masks/rani-weekend/mask-30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
 	],
 	'sophie39': [
 		'{}/masks/sophie39/mask-30fps-512x1024.{}'.format(LIBRARY_DIR_PATH, VIDEO_FMT),
