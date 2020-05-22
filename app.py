@@ -56,12 +56,12 @@ def add_story(story_id):
 		},
 		'model': model,
 		'showAnchor': data['showAnchor'],
-		'subtitle': clean_text(data['subtitle']),
-		'text': clean_text(data['text']),
+		'subtitle': data['subtitle'],
+		'text': data['text'],
 		'title': [
-			clean_text(data['title1']),
-			clean_text(data['title2']),
-			clean_text(data['title3'])
+			data['title1'],
+			data['title2'],
+			data['title3']
 		],
 	}
 	with open(story_filepath, 'w') as f:
@@ -75,11 +75,3 @@ def add_story(story_id):
 	publisher.publish(topic_path, data=data)
 
 	return 'ok'
-
-
-def clean_text(text):
-	return text\
-		.replace('\n', ' ')\
-		.replace('\u2019', '\'')\
-		.replace('  ', ' ')\
-		.strip()
