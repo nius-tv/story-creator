@@ -1,3 +1,4 @@
+import os
 import yaml
 
 from apache_beam.io.gcp import gcsio
@@ -70,6 +71,7 @@ def add_story(story_id):
 	dest_filepath = '{}/story.yaml'.format(story_id)
 	blob = dest_bucket.blob(dest_filepath)
 	blob.upload_from_filename(story_filepath)
+	os.remove(story_filepath)
 	# Create pubsub message
 	data = story_id.encode('utf-8') # data must be a bytestring
 	publisher.publish(topic_path, data=data)
