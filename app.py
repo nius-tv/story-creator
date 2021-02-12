@@ -11,7 +11,8 @@ from random import choice
 app = Flask(__name__)
 
 client = storage.Client()
-dest_bucket = client.get_bucket(BUCKET_NAME)
+dest_bucket = client.get_bucket(STORIES_BUCKET_NAME)
+library_bucket = client.get_bucket(LIBRARY_BUCKET_NAME)
 
 publisher = pubsub_v1.PublisherClient()
 topic_path = publisher.topic_path(COMPUTE_PROJECT_NAME, TOPIC_NAME)
@@ -20,7 +21,7 @@ topic_path = publisher.topic_path(COMPUTE_PROJECT_NAME, TOPIC_NAME)
 @app.route('/stories/<story_id>', methods=['POST'])
 def add_story(story_id):
 	data = request.get_json()
-	# Validates data
+	# Validate data
 	if not all(elem in data for elem in REQUIRED_FIELDS) \
 		or len(data['GCSImageURLs']) < MIN_NUM_IMAGES:
 		print('raise:', data)
@@ -37,23 +38,23 @@ def add_story(story_id):
 		dest_filepath = '{}/{}'.format(story_id, img_filename)
 		source_bucket.copy_blob(source_blob, dest_bucket, dest_filepath)
 	# Create story yaml file
-	story_filepath = '/tmp/{}.yaml'.format(story_id)
 	model = data['model']
+	template = load_template(model)
 	data = {
-		'adjustAnchor': ADJUST_ANCHOR[model],
-		'anchorAnimation': ANCHOR_ANIMATION[model],
-		'bgPadding': BACKGROUND_PADDINGS[model],
+		'adjustAnchor': template['adjustAnchor'],
+		'anchorAnimation': template['anchorAnimation'],
+		'bgPadding': template['backgroundPadding'],
 		'category': data['category'].strip(),
-		'chroma': CHROMA[model], 
+		'chroma': template['chroma'], 
 		'images': img_filenames,
-		'landmarks': LANDMARKS[model],
+		'landmarks': template['landmarks'],
 		'library': {
-			'bgVideoFilePath': choice(BACKGROUND_VIDEO_FILE_PATHS[model]),
-			'maskVideoFilePath': choice(MASK_VIDEO_FILE_PATHS[model]),
-			'musicFilePath': choice(MUSIC_FILE_PATHS[model]),
-			'presenterBgVideoFilePath': choice(PRESENTER_BACKGROUND_VIDEO_FILE_PATHS[model]),
-			'transitionFilePath': choice(TRANSITION_FILE_PATHS[model]),
-			'transitionVideoFilePath': choice(TRANSITION_VIDEO_FILE_PATHS[model]),
+			'bgVideoFilePath': choice(template['backgroundVideoFilePaths']),
+			'maskVideoFilePath': choice(template['maskVideoFilePaths']),
+			'musicFilePath': choice(template['musicFilePaths']),
+			'presenterBgVideoFilePath': choice(template['presenterBackgroundVideoFilePaths']),
+			'transitionFilePath': choice(template['transitionFilePaths']),
+			'transitionVideoFilePath': choice(template['transitionVideoFilePaths']),
 		},
 		'model': model,
 		'showAnchor': data['showAnchor'],
@@ -65,6 +66,7 @@ def add_story(story_id):
 			data['title3']
 		],
 	}
+	story_filepath = '/tmp/{}.yaml'.format(story_id)
 	with open(story_filepath, 'w') as f:
 		yaml.dump(data, f, default_flow_style=False)
 	# Upload yaml to story bucket
@@ -77,3 +79,9 @@ def add_story(story_id):
 	publisher.publish(topic_path, data=data)
 
 	return 'ok'
+
+def load_template(name):
+	path = 'templates/{}.yaml'.format(name)
+	blob = library_bucket.get_blob(path)
+	data = blob.download_as_string()
+	return yaml.load(data, Loader=yaml.FullLoader)
